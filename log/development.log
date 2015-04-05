@@ -582,3 +582,60 @@ Processing by CommentsController#index as HTML
   [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"
   Rendered comments/index.html.erb within layouts/application (2.0ms)
 Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2015-04-05 05:13:22 -0700
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 77ms (Views: 73.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments/new" for 127.0.0.1 at 2015-04-05 05:13:23 -0700
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (2.1ms)
+  Rendered comments/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 85ms (Views: 83.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2015-04-05 05:13:36 -0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2V7eMzNChczQkN19wTFbLcAJ1N+f2lRko7KrYYrxVKX3O/JPczhkYqPUHiTS0SklTGAPtM1P1hHA58J2coZHoQ==", "comment"=>{"post_id"=>"3", "body"=>"Ashley <3 We woofs pillow kun!"}, "commit"=>"Create Comment"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("post_id", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["post_id", 3], ["body", "Ashley <3 We woofs pillow kun!"], ["created_at", "2015-04-05 12:13:36.734627"], ["updated_at", "2015-04-05 12:13:36.734627"]]
+  [1m[35m (115.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/comments/2
+Completed 302 Found in 122ms (ActiveRecord: 116.1ms)
+
+
+Started GET "/comments/2" for 127.0.0.1 at 2015-04-05 05:13:36 -0700
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered comments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 64ms (Views: 61.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/3/comments" for 127.0.0.1 at 2015-04-05 05:13:44 -0700
+Processing by CommentsController#index as HTML
+  Parameters: {"post_id"=>"3"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"
+  Rendered comments/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 84ms (Views: 83.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/new" for 127.0.0.1 at 2015-04-05 05:13:55 -0700
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (2.2ms)
+  Rendered comments/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 86ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2015-04-05 05:13:58 -0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EIt4wY6mQsmx/wzpv4KTKlErJEuqoP6DJ8rfBG8JVYk+7lS9ztyjZ8K7z7CsYuEi3UL/IPg1fPZEn7YTl35GjQ==", "comment"=>{"post_id"=>"", "body"=>"Fuck me"}, "commit"=>"Create Comment"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered comments/_form.html.erb (3.3ms)
+  Rendered comments/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 78ms (Views: 74.7ms | ActiveRecord: 0.2ms)
